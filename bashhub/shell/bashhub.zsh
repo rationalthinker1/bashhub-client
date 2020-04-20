@@ -4,16 +4,16 @@
 #
 
 # Avoid duplicate inclusion
+export BH_HOME_DIRECTORY="${BH_HOME_DIRECTORY:-$HOME/.bashhub}"
+BH_DEPS_DIRECTORY="${BH_DEPS_DIRECTORY:=$BH_HOME_DIRECTORY/deps}"
+
 if [[ "$__bh_imported" == "defined" ]]; then
-    __bh_path_add "$HOME/.bashhub/bin"
+    __bh_path_add "${BH_DEPS_DIRECTORY}/bin"
     return 0
 fi
 
 __bh_imported="defined"
 
-export BH_HOME_DIRECTORY="$HOME/.bashhub/"
-
-BH_DEPS_DIRECTORY=${BH_DEPS_DIRECTORY:=$BH_HOME_DIRECTORY/deps}
 
 __bh_setup_bashhub() {
 
